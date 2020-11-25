@@ -43,9 +43,13 @@ module "aks-cluster" {
   client_id                = module.aks_identities.cluster_client_id
   client_secret            = module.aks_identities.cluster_sp_secret
 }
-
+/*
 module "aks_k8s_deployment" {
   source                   = "../modules/aks_k8s_deployment"
+  host                     =  module.aks-cluster.host 
+  client_certificate       =  base64decode(module.aks-cluster.client_certificate)
+  client_key               =  base64decode(module.aks-cluster.client_key)
+  cluster_ca_certificate   =  base64decode(module.aks-cluster.cluster_ca_certificate)
 }
-
+*/
 
